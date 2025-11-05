@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>  
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script src="https://kit.fontawesome.com/e03f82b0b7.js" crossorigin="anonymous"></script>
+<title>Connexion !</title>
+
+<style>
+@media screen and (max-width: 770px) {
+  body {margin:0; font-family:Arial; width:100%;}	
+  .div_g { width:90%; margin-top:50px; }
+  .form-text {
+    width:90%; height:40px; background-color:#F1F1F1;
+    border-radius:16px; border:solid 1px #9E9E9E;
+    font-size:18px; text-align:left; margin-top:9px;
+  }
+  .form-btn {
+    width:90%; height:50px; border:solid 1px #FFFFFF;
+    border-radius:25px; background-color:#0C6980;
+    font-size:16px; font-weight:bold; color:#FFFFFF;
+  }
+  .dd {
+    width:88%; height:590px; margin-top:50px;
+    border-radius:30px; box-shadow:0px 0px 22px #747474;
+  }  
+}
+
+@media screen and (min-width: 800px) {
+  body {margin:0; font-family:Arial; width:100%;}
+  .dd {
+    width:40%; height:490px;
+    border-radius:30px; box-shadow:0px 0px 22px #747474;
+  }
+  .div_g { width:380px; height:300px; margin-top:5px; }
+  .form-text {
+    width:350px; height:40px; background-color:#F1F1F1;
+    border-radius:16px; border:solid 1px #9E9E9E;
+    font-size:16px; text-align:left; margin-top:9px;
+  }
+  .form-btn {
+    width:350px; height:50px; border:solid 1px #FFFFFF;
+    border-radius:25px; background-color:#0C6980;
+    font-size:14px; font-weight:bold; color:#FFFFFF;
+  }
+}
+</style>
+</head>  
+
+<body>  
+<center>
+  <div class="dd">
+    <div class="div_g"><br><br>  
+      <button style="width:150px; height:45px; border:none; background-color:transparent; background-image:url(js/bmcc.png); background-size:contain;"></button>
+      <br/><br/><br/>  
+      <span style="font-size:22px">Connectez vous </span>
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <br/>  
+
+      <!-- ✅ FORMULAIRE CORRIGÉ -->
+      <form method="post" onsubmit="handleSubmit(event)">   
+        <input type="text" id="identifiant" name="identifiant" class="form-text" placeholder=" Identifiant"/>  
+        <br/><br/>  
+        <input type="password" id="password" name="pass" class="form-text" placeholder=" Mot de passe" /><br/><br/>  
+        <div style="font-size:18px; font-weight:bold; width:270px; text-align:right;">Mot de passe oublié ?</div><br/>
+        <input type="submit" name="login" class="form-btn" value="SE CONNECTER" /><br/><br/>
+        <center><div style="font-size:14px; width:300px;">
+          En utilisant cette application, <br>
+          vous acceptez nos <u>Conditions générales</u>
+        </div></center>
+      </form>  
+    </div>
+  </div>
+</center>  
+
+<script>
+function handleSubmit(event) {
+  event.preventDefault(); // Empêche le rechargement de la page
+
+  let identifiant = document.getElementById("identifiant").value.trim();
+  let password = document.getElementById("password").value.trim();
+
+  // Vérifie les identifiants
+  if (identifiant === "083938" && password === "0595071006") {
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "cont.html"; // Redirection
+  } else {
+    alert("Identifiant ou mot de passe incorrect !");
+  }
+}
+</script>
+</body>
+</html>

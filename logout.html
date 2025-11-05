@@ -1,0 +1,17 @@
+<script>
+// logout.js
+
+// 1. Supprimer les données de "session" locales
+localStorage.removeItem("isLoggedIn");  // Si tu avais enregistré l'état de connexion
+sessionStorage.clear();                 // Vide toute donnée temporaire
+
+// 2. (Optionnel) Supprimer tous les cookies
+document.cookie.split(";").forEach(function(cookie) { 
+  document.cookie = cookie
+    .replace(/^ +/, "")
+    .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+});
+
+// 3. Rediriger vers la page de login
+window.location.href = "index.html";
+</script>
